@@ -1,5 +1,5 @@
 import CONSTANTS from '../constants';
-import { showError, removeError, addOrUpdateInfo } from './util';
+import { showError, removeError, addOrUpdateInfo, updateHeroes } from './util';
 import pages from '../pages';
 
 const { PAGE_IDS, QUESTION_IDS } = CONSTANTS.IDs;
@@ -42,6 +42,7 @@ export default {
       addOrUpdateInfo(infoItems);
 
       const financialData = state.calculateFunds();
+      updateHeroes(financialData);
 
       state.data = { ...state.data, financialData };
     } else {
@@ -55,6 +56,6 @@ export default {
     const financialData = state.calculateFunds();
 
     state.data = { ...state.data, financialData };
+    updateHeroes(financialData);
   }
-
 };
